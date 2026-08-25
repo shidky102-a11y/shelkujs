@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * The header for our theme
+ *
+ * Displays all of the <head> section and everything up till <div id="content">
+ *
+ * @package Understrap
+ */
+
+// Exit if accessed directly.
+defined('ABSPATH') || exit;
+
+$bootstrap_version = get_theme_mod('understrap_bootstrap_version', 'bootstrap4');
+$navbar_type       = get_theme_mod('understrap_navbar_type', 'collapse');
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+
+<head>
+  <meta name="google-site-verification" content="gZH4lpd2_fNmu7N_GChQWoXzhu1G_s6ta8AqJAiLops" />
+	<meta charset="<?php bloginfo('charset'); ?>">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="custom-metadata" content="<?php echo ENHANCED_DOMAIN ?>">
+	<link rel="profile" href="http://gmpg.org/xfn/11">
+	<?php wp_head(); ?>
+</head>
+
+<body <?php body_class(); ?> <?php understrap_body_attributes(); ?>>
+	<?php do_action('wp_body_open'); ?>
+	<div class="site" id="page">
+
+		<!-- ******************* The Navbar Area ******************* -->
+		<header id="wrapper-navbar" class="wrapper-navbar">
+			<?php get_template_part('global-templates/navbar', $navbar_type . '-' . $bootstrap_version); ?>
+
+		</header><!-- #wrapper-navbar -->
+		<div class="wrapper-navbar-background"></div>
